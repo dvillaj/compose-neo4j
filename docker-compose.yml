@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+  mongodb:
+    container_name: neo4j_container
+    image: neo4j:3.5.11
+    environment:
+      NEO4J_AUTH: none
+    ports:
+      - 7474:7474
+      - 7687:7687
+    volumes:
+      - data_volume:/data
+      - import_volume:/var/lib/neo4j/import
+      - plugins_volume:/plugins
+    networks:
+      - neo4j
+    restart: unless-stopped
+  
+
+networks:
+  neo4j:
+    driver: bridge
+
+volumes:
+    data_volume:
+    import_volume:
+    plugins_volume:
