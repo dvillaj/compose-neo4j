@@ -10,7 +10,7 @@ services:
       - 7474:7474
       - 7687:7687
     volumes:
-      - data_volume:/data
+      # - data_volume:/data
       - import_volume:/var/lib/neo4j/import
       - plugins_volume:/plugins
     networks:
